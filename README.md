@@ -1,6 +1,6 @@
 # Mouse scRNA-seq with Cell Ranger on a SLURM Supercomputer
 
-**Author:** Manus AI
+
 **Scope:** A reproducible starter workflow for **10x Genomics mouse Gene Expression** FASTQs on a university SLURM cluster. The worked reference is `refdata-gex-GRCm39-2024-A` (mouse GRCm39). Always confirm that the selected reference is compatible with the installed Cell Ranger release before running production data.[1] [2]
 
 > **BIO559R students:** For the supplied `10x_A054` test data, Cell Ranger 9.0.1 installation, and mouse GRCm39 reference, begin with [the course-specific quick start](BIO559R_10x_A054_SLURM_QUICKSTART.md) and its two SLURM scripts.
