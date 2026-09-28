@@ -1,0 +1,31 @@
+name: saver-scanpy
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  # Keep Python and R in one isolated, reproducible teaching environment.
+  - python=3.11
+  - r-base=4.3
+  - r-saver=1.1.2
+  - scanpy>=1.11,<1.13
+  - anndata>=0.10
+  - mudata>=0.3
+  - muon>=0.1.9,<0.2
+  - numpy
+  - pandas
+  - scipy
+  - h5py
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - scikit-misc
+  - umap-learn
+  - leidenalg
+  - python-igraph
+  - pynndescent
+  - pysam
+  - pyranges
+  - jupyterlab
+  - ipykernel
+  - nbformat
+  - pip
