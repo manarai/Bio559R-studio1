@@ -1,0 +1,6 @@
+# Generated notebook/test artifacts
+__pycache__/
+*.pyc
+.smoke_test/
+results/
+.ipynb_checkpoints/

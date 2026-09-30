@@ -1,0 +1,36 @@
+{
+  "external_prerequisites": [
+    "basic Python",
+    "Jupyter notebooks",
+    "10x Gene Expression count matrix",
+    "cell versus gene matrix orientation"
+  ],
+  "modules": [
+    {
+      "number": 1,
+      "uses": [
+        "basic Python",
+        "Jupyter notebooks",
+        "10x Gene Expression count matrix",
+        "cell versus gene matrix orientation"
+      ],
+      "introduces": [
+        "AnnData counts layer",
+        "per-sample QC decision",
+        "batch-aware HVG selection",
+        "preprocessing provenance"
+      ],
+      "dataset": "Two instructor-approved 10x Gene Expression HDF5 matrices",
+      "forbidden_practical_terms": [
+        "PCA",
+        "batch correction",
+        "integration",
+        "neighbors",
+        "UMAP",
+        "clustering",
+        "cell-type annotation",
+        "differential expression"
+      ]
+    }
+  ]
+}

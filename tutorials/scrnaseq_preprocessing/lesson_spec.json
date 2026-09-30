@@ -1,0 +1,63 @@
+{
+  "course": {
+    "title": "BIO559R scRNA-seq Preprocessing",
+    "subtitle": "A two-sample Scanpy lesson from 10x HDF5 counts to a reproducible preprocessing handoff",
+    "audience": "Students with basic Python and introductory single-cell RNA-seq context",
+    "duration_hours": 2.5,
+    "hands_on_ratio": 0.8,
+    "primary_stack": ["Python", "Jupyter", "Scanpy", "AnnData"],
+    "repository_url": "https://github.com/manarai/Bio559R-studio1",
+    "repository_branch": "main",
+    "ai_assistance": {
+      "enabled": true,
+      "mode": "optional-coaching",
+      "require_verification_record": true,
+      "allow_protected_data": false
+    },
+    "outcomes": [
+      "Load and audit two compatible 10x Gene Expression HDF5 matrices.",
+      "Use per-sample diagnostics to make transparent preprocessing decisions.",
+      "Preserve raw UMI counts and save a reproducible preprocessing handoff."
+    ]
+  },
+  "modules": [
+    {
+      "number": 1,
+      "slug": "preprocess-two-scrnaseq-samples",
+      "title": "Preprocess Two scRNA-seq Samples",
+      "question": "Which cells and genes form a documented, quality-reviewed starting point for later analysis of two compatible scRNA-seq samples?",
+      "dataset": {
+        "name": "Two instructor-approved 10x Gene Expression HDF5 matrices",
+        "url": "https://www.10xgenomics.com/support/software/cell-ranger/latest/analysis/outputs/cr-outputs-h5-matrices",
+        "loader": "scanpy.read_10x_h5(path, gex_only=True)",
+        "access_note": "Students supply only approved, non-identifying matrices; original matrices remain unchanged."
+      },
+      "functions": [
+        "scanpy.read_10x_h5", "anndata.concat", "scanpy.pp.calculate_qc_metrics", "scanpy.pp.filter_genes", "scanpy.pp.normalize_total", "scanpy.pp.log1p", "scanpy.pp.highly_variable_genes"],
+      "concepts": ["AnnData", "raw UMI counts", "sample metadata", "per-sample quality control", "mitochondrial fraction", "doublet evidence", "normalization", "highly variable genes"],
+      "prerequisites": ["basic Python", "Jupyter notebooks", "10x Gene Expression count matrix", "cell versus gene matrix orientation"],
+      "introduced_here": ["AnnData counts layer", "per-sample QC decision", "batch-aware HVG selection", "preprocessing provenance"],
+      "reserved_for_later": ["PCA", "batch correction", "integration", "neighbors", "UMAP", "clustering", "cell-type annotation", "differential expression"],
+      "canonical_example": "Two instructor-approved 10x Gene Expression HDF5 matrices",
+      "methods": ["input audit", "gene-overlap check", "per-sample QC", "optional Scrublet scoring", "library-size normalization", "log transformation", "batch-aware HVG selection"],
+      "decision": "Choose and document whether each sample's QC distribution supports a minimum-gene rule and any additional sample-specific filters; make a separate doublet decision.",
+      "diagnostic": "Pre-filter and post-filter per-sample summaries and plots of total counts, detected genes, mitochondrial fraction, retention, and optional doublet scores.",
+      "deliverable": "A preprocessed H5AD object with raw counts preserved plus a JSON parameter/provenance record for a later analysis lesson.",
+      "notebook_path": "tutorials/scrnaseq_preprocessing/scrnaseq_two_samples_preprocessing_complete.ipynb",
+      "setup_code": "import anndata as ad\nimport scanpy as sc\nimport pandas as pd",
+      "challenge": "Change one documented QC threshold for one sample, predict the change in retained cells, and compare the post-filter diagnostic before retaining, narrowing, or withdrawing the filter decision.",
+      "solution_key": {
+        "expected_reasoning": "Students inspect each sample before filtering, preserve raw UMI counts in a named layer, avoid universal thresholds, and distinguish concatenation from batch correction.",
+        "expected_evidence": "A two-sample QC table/plot, explicit threshold dictionary, retained raw-count layer, and saved H5AD plus parameter JSON.",
+        "common_errors": ["Normalizing before preserving counts", "Applying one unexamined threshold to both samples", "Removing predicted doublets automatically", "Claiming that concatenation corrects batch effects", "Adding PCA or clustering despite the lesson boundary"],
+        "alternatives": ["Use no maximum-gene or mitochondrial rule until an appropriate diagnostic supports it", "Record doublet scores without removing cells", "Narrow the analysis claim when metadata or feature overlap is insufficient"]
+      },
+      "rubric": [
+        {"criterion": "Data contract and raw-count preservation", "points": 3, "evidence": "Two compatible inputs, explicit labels, and a retained counts layer."},
+        {"criterion": "QC reasoning", "points": 3, "evidence": "Per-sample diagnostics and a documented threshold/doublet rationale."},
+        {"criterion": "Reproducibility", "points": 2, "evidence": "Version record, H5AD handoff, and JSON parameter file."},
+        {"criterion": "Claim boundary", "points": 2, "evidence": "States that no batch correction, clusters, or cell identities were created."}
+      ]
+    }
+  ]
+}
