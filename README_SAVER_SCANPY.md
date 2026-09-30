@@ -10,6 +10,7 @@ This **stand-alone teaching module** adds a reproducible path from Cell Ranger c
 | --- | --- |
 | [Tutorial README](tutorials/saver_scanpy/README.md) | Data contracts, prerequisites, workflow map, installation, scientific guardrails, and progress checklist |
 | [Conda environment](tutorials/saver_scanpy/environment.yml) | One environment containing Scanpy, Muon, Jupyter, and `r-saver` |
+| [Studio 1 Conda environment](Bio559R-studio1-env.yml) | CPU baseline with Scanpy, AnnData, Scrublet, scvi-tools, and JupyterLab; see the [installation guide](BIO559R_STUDIO1_ENVIRONMENT.md). |
 | [Interactive notebook](tutorials/saver_scanpy/preprocess_saver_scanpy_rna_atac.ipynb) | Student tutorial for RNA, ATAC, or 10x multiome output; includes AI checkpoints |
 | [Codex start guide](tutorials/saver_scanpy/CODEX_START_HERE.md) | Safe prompts and commands for an AI-assisted, student-owned analysis |
 

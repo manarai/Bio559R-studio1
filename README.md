@@ -5,6 +5,8 @@
 
 > **BIO559R students:** For the supplied `10x_A054` test data, Cell Ranger 9.0.1 installation, and mouse GRCm39 reference, begin with [the course-specific quick start](BIO559R_10x_A054_SLURM_QUICKSTART.md) and its two SLURM scripts.
 
+> **Studio 1 downstream analysis:** Create the [BIO559R Studio 1 Conda environment](BIO559R-studio1-env.yml) for Scanpy, AnnData, Scrublet, scvi-tools, and JupyterLab. Follow the [installation guide](BIO559R_STUDIO1_ENVIRONMENT.md) after cloning the repository.
+
 ## 1. What this tutorial does
 
 This workflow installs or loads the needed programs, checks the original demultiplexed FASTQ files, optionally performs **approved, Read-2-only** trimming, runs `cellranger count` in a SLURM allocation, and explains the main output files. It assumes that each library is a conventional 10x 3' or 5' Gene Expression library represented by paired FASTQs. It does **not** cover Cell Ranger ARC, V(D)J, Flex, or a multiplexed Feature Barcode experiment; those assays require different, version-specific commands.[3]
